@@ -49,6 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
             color: #ffffff;
         }
 
+        .tema-oscuro header h1{
+            color: #ffffff;
+        }
+
         .tema-oscuro nav a {
             color: #ffffff;
         }
@@ -115,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor: pointer;
         }
     `;
-    
+
     // Agregar los estilos al head
     document.head.appendChild(style);
 
