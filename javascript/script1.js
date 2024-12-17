@@ -118,6 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
             top: 10px;
             cursor: pointer;
         }
+
+        /* Transición para el cambio de tema */
+
+        * {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
     `;
 
     // Agregar los estilos al head
