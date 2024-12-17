@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             color: #ffffff;
         }
 
-        .tema-oscuro header h1{
+        .tema-oscuro h1, tema-oscuro h2, tema-oscuro h3 {
             color: #ffffff;
         }
 
@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         .tema-oscuro #izquierda, .tema-oscuro #derecha {
+            background-color: #1e1e1e;
+        }
+
+        .tema-oscuro .testimonio {
             background-color: #1e1e1e;
         }
 
@@ -111,6 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .tema-claro #cambiar_tema_boton:hover {
             background-color: #2980b9;
         }
+
+        /* Estilos para el botón */
 
         #cambiar_tema_boton {
             position: fixed;
