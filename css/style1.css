@@ -86,7 +86,7 @@ nav a:hover {
     margin: 10px 0;
 }
 
-button {
+#contact button {
     background-color: #3498db;
     color: white;
     padding: 10px 20px;
@@ -94,7 +94,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+#contact button:hover {
     background-color: #2980b9;
 }
 
