@@ -9,7 +9,7 @@ body{
         "asideIzq section asideDer"
         "footer footer footer";
     height: 98vh;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -68,6 +68,15 @@ nav a:hover {
     padding: 40px;
 }
 
+#about > ul {
+    list-style-type: square;
+
+}
+
+#about > ul > li {
+    padding: 10px;
+}
+
 /*Estilo de la pagina de contacto*/
 #contact{
     grid-area: section;
@@ -102,6 +111,7 @@ nav a:hover {
 
 /*Estilo para la pagina de projectos*/
 #projects {
+    grid-area: section;
     padding: 40px;
 }
 
@@ -134,7 +144,7 @@ nav a:hover {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px black;
     width: 50%;
     box-sizing: border-box;
 }
@@ -143,10 +153,11 @@ nav a:hover {
 #izquierda{
     grid-area: asideIzq;
     background-color: #ecf0f1;
+    padding: 40px;
 }
 
 #izquierda ul{
-    list-style-type: disc;
+    list-style-type: none;
     padding-left: 20px;
 }
 
@@ -181,3 +192,7 @@ footer{
     padding: 10px;
 }
 
+/*Estilo para la transicion del cambio de tema*/
+.transicion-tema{
+    transition: background-color 0.5s ease, color 0.5s ease;
+}

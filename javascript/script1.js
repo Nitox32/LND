@@ -1,11 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { 
     const toggleButton = document.createElement('button'); // Crear el botón
     toggleButton.id = 'cambiar_tema_boton'; // Asignar un ID único al botón
+    toggleButton.backgroundColor = '#2c3e50'; // Color de fondo del botón
     
     // Crear el elemento de imagen
     const img = document.createElement('img');
     img.src = '../img/enlace1/bombilla.png'; // Ruta de la imagen
-    img.alt = 'Toggle Theme'; // Texto alternativo para la imagen
+    img.alt = 'cambiar tema'; // Texto alternativo para la imagen
     img.width = 30; // Ancho de la imagen
     img.height = 30; // Alto de la imagen
 
@@ -13,14 +14,32 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleButton.appendChild(img);
     document.body.appendChild(toggleButton);
 
+    // Leer el tema desde localStorage
+    const temaGuardado = localStorage.getItem('tema');
+    if (temaGuardado) {
+        document.body.classList.add(temaGuardado);
+        if (temaGuardado === 'tema-oscuro') {
+            img.src = '../img/enlace1/bombilla_apagada.png';
+        }
+    } else {
+        document.body.classList.add('tema-claro');
+}
+
     toggleButton.addEventListener('click', () => {
+        // Agregar la clase de transición antes de la animación
+        document.body.classList.add('transicion-tema'); 
+
         // Cambio de tema al hacer click
         if (document.body.classList.contains('tema-oscuro')) { // Si el tema es oscuro
             document.body.classList.remove('tema-oscuro'); // Remover la clase tema-oscuro
             document.body.classList.add('tema-claro'); // Agregar la clase tema-claro
+            localStorage.setItem('tema', 'tema-claro'); // Guardar el tema en localStorage
+            img.src = '../img/enlace1/bombilla.png';
         } else {
             document.body.classList.remove('tema-claro'); // Remover la clase tema-claro
             document.body.classList.add('tema-oscuro'); // Agregar la clase tema-oscuro
+            localStorage.setItem('tema', 'tema-oscuro'); // Guardar el tema en localStorage
+            img.src = '../img/enlace1/bombilla_apagada.png';
         }
 
         // Cambio de imagen al hacer click
@@ -31,6 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
             img.src = '../img/enlace1/bombilla.png';
             img.alt = 'Cambiar tema';
         }
+
+         // quita la clase de transición después de la animación
+         setTimeout(() => {
+            document.body.classList.remove('transicion-tema');
+        }, 500); 
     });
 
     // Estilos de los temas
@@ -67,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         .tema-oscuro .testimonio {
             background-color: #1e1e1e;
+            box-shadow: 0 4px 6px white;
         }
 
         .tema-oscuro #cambiar_tema_boton {
@@ -127,14 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         /* Transición para el cambio de tema */
 
-        * {
+        .transicion-tema * {
             transition: background-color 0.5s ease, color 0.5s ease;
         }
     `;
 
     // Agregar los estilos al head
     document.head.appendChild(style);
-
-    // Tema inicial de la pagina
-    document.body.classList.add('tema-claro');
 });
